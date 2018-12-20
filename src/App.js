@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import { Button, Navbar } from 'react-bootstrap';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Nav, Navbar } from 'react-bootstrap';
 import Home from './component/home.js';
 import Topic from './component/topic.js';
 import About from './component/about.js';
@@ -14,23 +14,24 @@ class App extends Component {
                 <div className="App">
                     <Navbar bg="light" expand="lg" fixed="top">
                         <Navbar.Brand>Flower-de-luce</Navbar.Brand>
+                        <Navbar.Collapse>
+                            <Nav defaultActiveKey="/">
+                                <Nav.Link href="/">Home</Nav.Link>
+                                <Nav.Link href="/topic">Topic</Nav.Link>
+                                <Nav.Link href="/about">About</Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
                         <Navbar.Collapse className="justify-content-end">
                             <Navbar.Text>
                                 sign in as <a href="/">Peter</a>
                             </Navbar.Text>
                         </Navbar.Collapse>
                     </Navbar>
-                    {/* <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/topic">Topic</Link></li>
-                        <li><Link to="/about">About</Link></li>
-                    </ul>
-                    <br />
                     <ul>
                         <Route exact path="/" component={Home}></Route>
                         <Route path="/topic" component={Topic}></Route>
                         <Route path="/about" component={About}></Route>
-                    </ul> */}
+                    </ul>
                 </div>
             </BrowserRouter>
         );
