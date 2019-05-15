@@ -1,0 +1,15 @@
+.taxi {
+    width: 80%;
+    margin: 0 auto;
+}
+.filter {
+    margin: 1rem 0;
+}
+.map {
+    height: 400px;
+}
+
+/* override default react-dates style */
+.SingleDatePicker_picker {
+    z-index: 1001;
+}

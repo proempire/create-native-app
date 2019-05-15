@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
 class Topic extends Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <div className="topic">
-                Choose one topic to start
+                Type some topics...
             </div>
         );
     }
