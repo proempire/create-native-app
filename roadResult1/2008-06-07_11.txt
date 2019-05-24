@@ -1,2 +1,0 @@
-startId,endId,startLat,startLon,endLat,endLon,roadCount
-65351554,65322554,37.76408,-122.455804,37.764308,-122.45423999999998,1.0
