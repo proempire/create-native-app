@@ -81,8 +81,3 @@ typings/
 
 # next.js build output
 .next
-
-/result
-/roadResult
-/result1
-/roadResult1
