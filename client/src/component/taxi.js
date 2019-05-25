@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Map, TileLayer } from 'react-leaflet';
-import { CircleMarker } from 'leaflet';
+import { Map, TileLayer, CircleMarker } from 'react-leaflet';
+// import { CircleMarker } from 'leaflet';
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
@@ -16,6 +16,7 @@ class Taxi extends Component {
             zoom: 13,
             date: null,
             focused: false,
+            grids: [],
             latUnit: 0.00124378,
             lonUnit: 0.00157495,
             minLat: 37.707409,
@@ -52,11 +53,18 @@ class Taxi extends Component {
         // minLon = -122.515239
         // maxLon = -122.357744
         // lonUnit = 0.00157495
+        const grids = [];
         data.forEach((gridUnit) => {
             const lat = this.state.minLat + gridUnit.y * this.state.latUnit;
             const lon = this.state.minLon + gridUnit.x * this.state.lonUnit;
             const center = { lat, lon };
-            const el = new CircleMarker(center, );
+            grids.push({
+                center,
+                color: gridUnit.count
+            });
+        });
+        this.setState({
+            grids
         });
     }
     render() {
@@ -79,6 +87,11 @@ class Taxi extends Component {
                         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
+                    {this.state.grids.map(grid => 
+                        <CircleMarker center={grid.center} color={'red'} radius={20}>
+                            {/* <Popup>Popup in CircleMarker</Popup> */}
+                        </CircleMarker>
+                    )}
                     {/* <Marker position={position}>
                         <Popup>
                             A pretty CSS3 popup. <br /> Easily customizable.
