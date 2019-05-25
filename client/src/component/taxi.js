@@ -60,7 +60,7 @@ class Taxi extends Component {
             const center = { lat, lon };
             grids.push({
                 center,
-                color: gridUnit.count
+                opacity: gridUnit.count / 20
             });
         });
         this.setState({
@@ -87,8 +87,9 @@ class Taxi extends Component {
                         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {this.state.grids.map(grid => 
-                        <CircleMarker center={grid.center} color={'red'} radius={20}>
+                    {this.state.grids.map((grid, gridIndex) => 
+                        <CircleMarker center={grid.center} color='red' radius={4} key={`grid${gridIndex}`}
+                            weight='0' fillOpacity={grid.opacity}>
                             {/* <Popup>Popup in CircleMarker</Popup> */}
                         </CircleMarker>
                     )}
