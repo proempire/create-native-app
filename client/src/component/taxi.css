@@ -13,3 +13,8 @@
 .SingleDatePicker_picker {
     z-index: 1001;
 }
+
+.time-span {
+    position: relative;
+    height: 100px;
+}
