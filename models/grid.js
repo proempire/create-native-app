@@ -31,3 +31,5 @@ gridSchema.statics.findById = async function (id) {
 const Grid = mongoose.model('Grid', gridSchema);
 
 module.exports = Grid;
+
+// fucking szb
